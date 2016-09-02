@@ -61,28 +61,15 @@ import (
 )
 
 func main() {
-  // create or use one of the built'n serializers, in this case we will use the markdown serializer
-  // will receive markdown content as string and return the HTML form of them
-  // as []byte or as String if SerializeToString called instead of Serialize, see below
-	markdownSerializer := markdown.New()
-  // to learn how to create your own custom serializer go to the serializer_test.go
-  // it's just one function.
+  markdownSerializer := markdown.New()
 
-	// mySerializers := serializer.Serializers{}
-  // mySerializers.For(typeKey string, serializer ...serializer.Serializer)
+  serializer.For("markdown", markdownSerializer)
 
-	// or just use the default one
-  // serializer.For(typeKey string, serializer ...serializer.Serializer)
-
-  // add the serializer to a custom key,
-  // supports more than one serializer for each key
-	serializer.For("markdown", markdownSerializer)
-
-  // if more than one Serializer is registered to the same key then
-  // the final result will be the results of all of its(key's) serializers
-  result, err := serializer.SerializeToString("markdown", "## Hello") optional third parameter: serializer.Options{"map": "of interface{}"}
+  result, err := serializer.SerializeToString("markdown", "## Hello")
+  // Optional third parameter is a map[string]interface{}, which is any runtime options for the serializers registered to 'markdown' key
 
   println(result)
+}
 ```
 
 **explanation**
@@ -99,14 +86,9 @@ mySerializers := serializer.Serializers{}
 mySerializers.For("key", markdownSerializer)
 ```
 
-Or just use the default package-level Serializers{}
-```go
-serializer.For(key string, serializer ...serializer.Serializer)
-```
 
-
-Add the serializer to a custom key,
-supports more than one serializer for each key
+Add the serializer to a custom key, using the default Serializers{}.
+It supports more than one serializer for each key
 
 ```go
 serializer.For("markdown", markdownSerializer)
