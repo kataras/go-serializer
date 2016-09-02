@@ -1,4 +1,4 @@
-[Travis Widget]: https://img.shields.io/travis/!kataras/go-serializer.svg?style=flat-square
+[Travis Widget]: https://img.shields.io/travis/kataras/go-serializer.svg?style=flat-square
 [Travis]: http://travis-ci.org/kataras/go-serializer
 [License Widget]: https://img.shields.io/badge/license-MIT%20%20License%20-E91E63.svg?style=flat-square
 [License]: https://github.com/kataras/go-serializer/blob/master/LICENSE
