@@ -1,15 +1,26 @@
 // Package serializer helps GoLang Developers to serialize any custom type to []byte or string.
 // Your custom serializers are finally, organised.
-// 
+//
 // Built'n supported serializers: JSON, JSONP, XML, Markdown, Text, Binary Data.
 //
 // This package is already used by Iris & Q Web Frameworks.
-
 package serializer
 
 import (
 	"github.com/kataras/go-errors"
+	"github.com/kataras/go-serializer/data"
+	"github.com/kataras/go-serializer/json"
+	"github.com/kataras/go-serializer/jsonp"
+	"github.com/kataras/go-serializer/markdown"
+	"github.com/kataras/go-serializer/text"
+	"github.com/kataras/go-serializer/xml"
 	"strings"
+	"sync"
+)
+
+const (
+	// Version current version number
+	Version = "0.0.2"
 )
 
 type (
@@ -69,8 +80,42 @@ var (
 	errSerializerNotFound = errors.New("Serializer with key %s couldn't be found")
 )
 
+var (
+	once                   sync.Once
+	defaultSerializersKeys = [...]string{json.ContentType, jsonp.ContentType, xml.ContentType, markdown.ContentType, text.ContentType, data.ContentType}
+)
+
+func registerDefaults() {
+	for _, ctype := range defaultSerializersKeys {
+
+		if sers := defaultSerializers[ctype]; sers == nil || len(sers) == 0 {
+			// if not exists
+			switch ctype {
+			case json.ContentType:
+				defaultSerializers.For(ctype, json.New())
+			case jsonp.ContentType:
+				defaultSerializers.For(ctype, jsonp.New())
+			case xml.ContentType:
+				defaultSerializers.For(ctype, xml.New())
+			case markdown.ContentType:
+				defaultSerializers.For(ctype, markdown.New())
+			case text.ContentType:
+				defaultSerializers.For(ctype, markdown.New())
+			case data.ContentType:
+				defaultSerializers.For(ctype, data.New())
+			}
+		}
+	}
+}
+
 // Serialize returns the result as bytes representation of the serializer(s)
 func Serialize(key string, obj interface{}, options ...map[string]interface{}) ([]byte, error) {
+	// only to the default serializer, check if no of the built'n serializer's key are registered, if not register them here
+	// I don't put it to the initialize of the defaultSerializers because the developer may don't want the built'n serializers at all
+	once.Do(func() {
+		registerDefaults()
+	})
+
 	return defaultSerializers.Serialize(key, obj, options...)
 }
 

@@ -22,6 +22,8 @@ func TestSerializerFull(t *testing.T) {
 		return buf, nil
 	})
 
+	registerDefaults()
+	originalLen := Len()
 	//mySerializers := Serializers{}
 	// or just use the default one which will cover more code
 
@@ -30,8 +32,8 @@ func TestSerializerFull(t *testing.T) {
 
 	// will not be putted becuase of dot on the key which is not allowed.
 	For("markdown2.", myMarkdownSerializer)
-	if l := Len(); l != 1 {
-		t.Fatalf("Expecting serializers length: %d but got %d", 1, l)
+	if l := Len(); l != originalLen+1 {
+		t.Fatalf("Expecting serializers length: %d but got %d", originalLen+1, l)
 	}
 
 	// lets test the serialize
@@ -51,8 +53,8 @@ func TestSerializerFull(t *testing.T) {
 	// it should give us the final result of both of the serializers' results.
 	For("markdown", myMarkdownSerializer) // we use the same serializer so it should be process the same input two times and give us two the <h1>Hello</h1>\n<h1>Hello</h1>\n
 
-	if l := Len(); l != 1 {
-		t.Fatalf("Expecting serializers length: %d but got %d. We still have one because the len is by the key, which both times is 'markdown'", 1, l)
+	if l := Len(); l != originalLen+1 {
+		t.Fatalf("Expecting serializers length: %d but got %d. We still have %d because the len is by the key, which both times is 'markdown'", originalLen+1, originalLen+1, l)
 	}
 
 	expectingFinalResult := expectingResult + expectingResult

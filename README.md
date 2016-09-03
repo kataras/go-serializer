@@ -2,7 +2,7 @@
 [Travis]: http://travis-ci.org/kataras/go-serializer
 [License Widget]: https://img.shields.io/badge/license-MIT%20%20License%20-E91E63.svg?style=flat-square
 [License]: https://github.com/kataras/go-serializer/blob/master/LICENSE
-[Release Widget]: https://img.shields.io/badge/release-v0.0.1-blue.svg?style=flat-square
+[Release Widget]: https://img.shields.io/badge/release-v0.0.2-blue.svg?style=flat-square
 [Release]: https://github.com/kataras/go-serializer/releases
 [Chat Widget]: https://img.shields.io/badge/community-chat-00BCD4.svg?style=flat-square
 [Chat]: https://kataras.rocket.chat/channel/go-serializer
@@ -135,7 +135,7 @@ If you'd like to discuss this package, or ask questions about it, feel free to
 Versioning
 ------------
 
-Current: **v0.0.1**
+Current: **v0.0.2**
 
 Read more about Semantic Versioning 2.0.0
 
