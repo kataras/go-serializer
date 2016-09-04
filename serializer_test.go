@@ -22,7 +22,7 @@ func TestSerializerFull(t *testing.T) {
 		return buf, nil
 	})
 
-	registerDefaults()
+	RegisterDefaults(defaultSerializers)
 	originalLen := Len()
 	//mySerializers := Serializers{}
 	// or just use the default one which will cover more code

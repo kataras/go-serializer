@@ -20,7 +20,7 @@ import (
 
 const (
 	// Version current version number
-	Version = "0.0.2"
+	Version = "0.0.3"
 )
 
 type (
@@ -85,24 +85,25 @@ var (
 	defaultSerializersKeys = [...]string{json.ContentType, jsonp.ContentType, xml.ContentType, markdown.ContentType, text.ContentType, data.ContentType}
 )
 
-func registerDefaults() {
+// RegisterDefaults register defaults serializer for each of the default serializer keys (data,json,jsonp,markdown,text,xml)
+func RegisterDefaults(serializers Serializers) {
 	for _, ctype := range defaultSerializersKeys {
 
-		if sers := defaultSerializers[ctype]; sers == nil || len(sers) == 0 {
+		if sers := serializers[ctype]; sers == nil || len(sers) == 0 {
 			// if not exists
 			switch ctype {
 			case json.ContentType:
-				defaultSerializers.For(ctype, json.New())
+				serializers.For(ctype, json.New())
 			case jsonp.ContentType:
-				defaultSerializers.For(ctype, jsonp.New())
+				serializers.For(ctype, jsonp.New())
 			case xml.ContentType:
-				defaultSerializers.For(ctype, xml.New())
+				serializers.For(ctype, xml.New())
 			case markdown.ContentType:
-				defaultSerializers.For(ctype, markdown.New())
+				serializers.For(ctype, markdown.New())
 			case text.ContentType:
-				defaultSerializers.For(ctype, markdown.New())
+				serializers.For(ctype, markdown.New())
 			case data.ContentType:
-				defaultSerializers.For(ctype, data.New())
+				serializers.For(ctype, data.New())
 			}
 		}
 	}
@@ -113,7 +114,7 @@ func Serialize(key string, obj interface{}, options ...map[string]interface{}) (
 	// only to the default serializer, check if no of the built'n serializer's key are registered, if not register them here
 	// I don't put it to the initialize of the defaultSerializers because the developer may don't want the built'n serializers at all
 	once.Do(func() {
-		registerDefaults()
+		RegisterDefaults(defaultSerializers)
 	})
 
 	return defaultSerializers.Serialize(key, obj, options...)
