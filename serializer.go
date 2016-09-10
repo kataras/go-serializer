@@ -20,7 +20,7 @@ import (
 
 const (
 	// Version current version number
-	Version = "0.0.3"
+	Version = "0.0.4"
 )
 
 type (
@@ -101,7 +101,7 @@ func RegisterDefaults(serializers Serializers) {
 			case markdown.ContentType:
 				serializers.For(ctype, markdown.New())
 			case text.ContentType:
-				serializers.For(ctype, markdown.New())
+				serializers.For(ctype, text.New())
 			case data.ContentType:
 				serializers.For(ctype, data.New())
 			}

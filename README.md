@@ -1,29 +1,30 @@
-[Travis Widget]: https://img.shields.io/travis/kataras/go-serializer.svg?style=flat-square
-[Travis]: http://travis-ci.org/kataras/go-serializer
-[License Widget]: https://img.shields.io/badge/license-MIT%20%20License%20-E91E63.svg?style=flat-square
-[License]: https://github.com/kataras/go-serializer/blob/master/LICENSE
-[Release Widget]: https://img.shields.io/badge/release-v0.0.3-blue.svg?style=flat-square
-[Release]: https://github.com/kataras/go-serializer/releases
-[Chat Widget]: https://img.shields.io/badge/community-chat-00BCD4.svg?style=flat-square
-[Chat]: https://kataras.rocket.chat/channel/go-serializer
-[ChatMain]: https://kataras.rocket.chat/channel/go-serializer
-[ChatAlternative]: https://gitter.im/kataras/go-serializer
-[Report Widget]: https://img.shields.io/badge/report%20card-A%2B-F44336.svg?style=flat-square
-[Report]: http://goreportcard.com/report/kataras/go-serializer
-[Documentation Widget]: https://img.shields.io/badge/documentation-reference-5272B4.svg?style=flat-square
-[Documentation]: https://godoc.org/github.com/kataras/go-serializer
-[Language Widget]: https://img.shields.io/badge/powered_by-Go-3362c2.svg?style=flat-square
-[Language]: http://golang.org
-[Platform Widget]: https://img.shields.io/badge/platform-any--OS-yellow.svg?style=flat-square
+<p align="center">
+  <img src="/logo.jpg" height="400">
+  <br/>
+
+ <a href="https://travis-ci.org/kataras/go-serializer"><img src="https://img.shields.io/travis/kataras/go-serializer.svg?style=flat-square" alt="Build Status"></a>
 
 
+ <a href="https://github.com/avelino/awesome-go"><img src="https://img.shields.io/badge/awesome-%E2%9C%93-ff69b4.svg?style=flat-square" alt="Awesome GoLang"></a>
 
-Serialize any custom type to []byte or string.
-Your custom serializers are finally, organised.
+ <a href="http://goreportcard.com/report/kataras/go-serializer"><img src="https://img.shields.io/badge/-A%2B-F44336.svg?style=flat-square" alt="Report A+"></a>
 
-[![Travis Widget]][Travis] [![Release Widget]][Release] [![Documentation Widget]][Documentation] [![Chat Widget]][Chat] [![Report Widget]][Report] [![License Widget]][License]  [![Language Widget]][Language] ![Platform Widget]
 
-**Easy-to-use** while providing robust set of features, simple to understand.
+ <a href="https://github.com/kataras/go-serializer/blob/master/LICENSE"><img src="https://img.shields.io/badge/%20license-MIT%20-E91E63.svg?style=flat-square" alt="License"></a>
+
+ <a href="https://github.com/kataras/go-serializer/releases"><img src="https://img.shields.io/badge/%20release%20-%20v0.0.4-blue.svg?style=flat-square" alt="Releases"></a>
+
+ <a href="https://godoc.org/github.com/kataras/go-serializer"><img src="https://img.shields.io/badge/%20docs-reference-5272B4.svg?style=flat-square" alt="Godoc"></a>
+
+ <a href="https://kataras.rocket.chat/channel/go-serializer"><img src="https://img.shields.io/badge/%20community-chat-00BCD4.svg?style=flat-square" alt="Chat"></a>
+
+<br/><br/>
+
+Serialize any custom type to []byte or string. Your custom serializers are, finally, organised.
+</p>
+
+## Easy-to-use
+While providing robust set of features, simple to understand.
 
 Built'n supported serializers:
 
@@ -37,7 +38,7 @@ Built'n supported serializers:
 Go [here](https://github.com/kataras/go-serializer/blob/master/serializer.go#L12) to learn how you can create and use your own custom Serializer.
 
 
-This package is already used by [Iris web framework](https://github.com/kataras/iris) and [Q web framework](https://github.com/kataras/q).
+This package is already used by [Iris web framework](https://github.com/kataras/iris) and [Q web framework](https://github.com/kataras/q), examples [here](https://github.com/iris-contrib/examples/tree/master/serialize_engines/).
 
 
 Installation
@@ -135,7 +136,7 @@ If you'd like to discuss this package, or ask questions about it, feel free to
 Versioning
 ------------
 
-Current: **v0.0.3**
+Current: **v0.0.4**
 
 Read more about Semantic Versioning 2.0.0
 
@@ -160,3 +161,6 @@ License
 This project is licensed under the MIT License.
 
 License can be found [here](LICENSE).
+
+[Chat Widget]: https://img.shields.io/badge/community-chat-00BCD4.svg?style=flat-square
+[Chat]: https://kataras.rocket.chat/channel/go-serializer
