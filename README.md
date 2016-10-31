@@ -46,7 +46,7 @@ Installation
 The only requirement is the [Go Programming Language](https://golang.org/dl), at least v1.6.
 
 ```bash
-$ go get -u github.com/kataras/go-serializer
+$ go get -u gopkg.in/kataras/go-serializer.v0
 ```
 
 
@@ -57,8 +57,8 @@ Usage
 package main
 
 import (
-  "github.com/kataras/go-serializer"
-  "github.com/kataras/go-serializer/markdown"
+  "gopkg.in/kataras/go-serializer.v0"
+  "gopkg.in/kataras/go-serializer.v0/markdown"
 )
 
 func main() {

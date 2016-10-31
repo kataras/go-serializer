@@ -8,12 +8,12 @@ package serializer
 
 import (
 	"github.com/kataras/go-errors"
-	"github.com/kataras/go-serializer/data"
-	"github.com/kataras/go-serializer/json"
-	"github.com/kataras/go-serializer/jsonp"
-	"github.com/kataras/go-serializer/markdown"
-	"github.com/kataras/go-serializer/text"
-	"github.com/kataras/go-serializer/xml"
+	"gopkg.in/kataras/go-serializer.v0/data"
+	"gopkg.in/kataras/go-serializer.v0/json"
+	"gopkg.in/kataras/go-serializer.v0/jsonp"
+	"gopkg.in/kataras/go-serializer.v0/markdown"
+	"gopkg.in/kataras/go-serializer.v0/text"
+	"gopkg.in/kataras/go-serializer.v0/xml"
 	"strings"
 	"sync"
 )
