@@ -12,7 +12,7 @@
 
  <a href="https://github.com/kataras/go-serializer/blob/master/LICENSE"><img src="https://img.shields.io/badge/%20license-MIT%20-E91E63.svg?style=flat-square" alt="License"></a>
 
- <a href="https://github.com/kataras/go-serializer/releases"><img src="https://img.shields.io/badge/%20release%20-%20v0.0.4-blue.svg?style=flat-square" alt="Releases"></a>
+ <a href="https://github.com/kataras/go-serializer/releases"><img src="https://img.shields.io/badge/%20release%20-%20v0.0.5-blue.svg?style=flat-square" alt="Releases"></a>
 
  <a href="https://godoc.org/github.com/kataras/go-serializer"><img src="https://img.shields.io/badge/%20docs-reference-5272B4.svg?style=flat-square" alt="Godoc"></a>
 
@@ -32,8 +32,6 @@ Built'n supported serializers:
 - [JSONP](https://github.com/kataras/go-serializer/tree/master/jsonp)
 - [XML](https://github.com/kataras/go-serializer/tree/master/xml)
 - [Markdown](https://github.com/kataras/go-serializer/tree/master/markdown)
-- [Text](https://github.com/kataras/go-serializer/tree/master/text)
-- [Binary Data](https://github.com/kataras/go-serializer/tree/master/data)
 
 Go [here](https://github.com/kataras/go-serializer/blob/master/serializer.go#L12) to learn how you can create and use your own custom Serializer.
 
@@ -136,7 +134,7 @@ If you'd like to discuss this package, or ask questions about it, feel free to
 Versioning
 ------------
 
-Current: **v0.0.4**
+Current: **v0.0.5**
 
 Read more about Semantic Versioning 2.0.0
 

@@ -1,26 +1,25 @@
 // Package serializer helps GoLang Developers to serialize any custom type to []byte or string.
 // Your custom serializers are finally, organised.
 //
-// Built'n supported serializers: JSON, JSONP, XML, Markdown, Text, Binary Data.
+// Built'n supported serializers: JSON, JSONP, XML, Markdown.
 //
-// This package is already used by Iris & Q Web Frameworks.
+// This package is already used by Iris web framework.
 package serializer
 
 import (
+	"strings"
+	"sync"
+
 	"github.com/kataras/go-errors"
-	"github.com/kataras/go-serializer/data"
 	"github.com/kataras/go-serializer/json"
 	"github.com/kataras/go-serializer/jsonp"
 	"github.com/kataras/go-serializer/markdown"
-	"github.com/kataras/go-serializer/text"
 	"github.com/kataras/go-serializer/xml"
-	"strings"
-	"sync"
 )
 
 const (
 	// Version current version number
-	Version = "0.0.4"
+	Version = "0.0.5"
 )
 
 type (
@@ -75,21 +74,21 @@ func (s Serializers) For(key string, serializer ...Serializer) {
 }
 
 var (
-	errKeyMissing         = errors.New("Please specify a key")
-	errSerializersEmpty   = errors.New("Serializers map is empty")
-	errSerializerNotFound = errors.New("Serializer with key %s couldn't be found")
+	errKeyMissing         = errors.New("please specify a key")
+	errSerializersEmpty   = errors.New("serializers map is empty")
+	errSerializerNotFound = errors.New("serializer with key '%s' couldn't be found")
 )
 
 var (
 	once                   sync.Once
-	defaultSerializersKeys = [...]string{json.ContentType, jsonp.ContentType, xml.ContentType, markdown.ContentType, text.ContentType, data.ContentType}
+	defaultSerializersKeys = [...]string{json.ContentType, jsonp.ContentType, xml.ContentType, markdown.ContentType}
 )
 
 // RegisterDefaults register defaults serializer for each of the default serializer keys (data,json,jsonp,markdown,text,xml)
 func RegisterDefaults(serializers Serializers) {
 	for _, ctype := range defaultSerializersKeys {
 
-		if sers := serializers[ctype]; sers == nil || len(sers) == 0 {
+		if sers := serializers[ctype]; len(sers) == 0 {
 			// if not exists
 			switch ctype {
 			case json.ContentType:
@@ -100,10 +99,6 @@ func RegisterDefaults(serializers Serializers) {
 				serializers.For(ctype, xml.New())
 			case markdown.ContentType:
 				serializers.For(ctype, markdown.New())
-			case text.ContentType:
-				serializers.For(ctype, text.New())
-			case data.ContentType:
-				serializers.For(ctype, data.New())
 			}
 		}
 	}
